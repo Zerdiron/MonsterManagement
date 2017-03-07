@@ -1,0 +1,407 @@
+﻿<Page x:Class="MonsterManagement.Stats"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MonsterManagement"
+       mc:Ignorable="d" 
+      d:DesignHeight="338" d:DesignWidth="520"
+      Title="Stats">
+
+	<Grid Background="White">
+		<!-- Définitions de la grille de la page. -->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="26*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="70*"/>
+			<ColumnDefinition Width="70*"/>
+			<ColumnDefinition Width="70*"/>
+			<ColumnDefinition Width="70*"/>
+			<ColumnDefinition Width="70*"/>
+			<ColumnDefinition Width="70*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+
+		<!-- Titres -->
+		<Label Background="Coral"
+               Grid.Column="1" Grid.ColumnSpan="6"
+               Grid.Row="1"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Content="Stats d'une créature"/>
+		<Label Background="Coral"
+               Grid.Column="1" Grid.ColumnSpan="6"
+               Grid.Row="4"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Content="Bonus aux Jets de Sauvegardes"/>
+		<Label Background="Coral"
+               Grid.Column="1" Grid.ColumnSpan="6"
+               Grid.Row="6"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Content="Combats"/>
+
+		<!-- Force -->
+		<Label 
+			Grid.Column="1"
+			Grid.Row="2"
+			Content="FOR"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray" 
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="1"
+			Grid.Row="3"
+			x:Name="Force"
+			Text="10"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="1"
+			Grid.Row="5"
+			x:Name="JDSFor"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Dextérité -->
+		<Label 
+			Grid.Column="2"
+			Grid.Row="2"
+			Content="DEX"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray" 
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="2"
+			Grid.Row="3"
+			x:Name="Dexterite"
+			Text="10"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="2"
+			Grid.Row="5"
+			x:Name="JDSDex"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Constitution -->
+		<Label 
+			Grid.Column="3"
+			Grid.Row="2"
+			Content="CON"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray" 
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="3"
+			Grid.Row="3"
+			x:Name="Constitution"
+			Text="10"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="3"
+			Grid.Row="5"
+			x:Name="JDSCon"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Intelligence -->
+		<Label 
+			Grid.Column="4"
+			Grid.Row="2"
+			Content="INT"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray" 
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="4"
+			Grid.Row="3"
+			x:Name="Intelligence"
+			Text="10"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="4"
+			Grid.Row="5"
+			x:Name="JDSInt"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Sagesse -->
+		<Label 
+			Grid.Column="5"
+			Grid.Row="2"
+			Content="SAG"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray" 
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="5"
+			Grid.Row="3"
+			x:Name="Sagesse"
+			Text="10"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="5"
+			Grid.Row="5"
+			x:Name="JDSSag"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Charisme -->
+		<Label 
+			Grid.Column="6"
+			Grid.Row="2"
+			Content="CHA"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray" 
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="6"
+			Grid.Row="3"
+			x:Name="Charisme"
+			Text="10"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="6"
+			Grid.Row="5"
+			x:Name="JDSCha"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Première attaque -->
+		<Label 
+			Grid.Column="1" Grid.ColumnSpan="1"
+			Grid.Row="7"
+			Content=" Attaque 1 :"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray"
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="2"
+			Grid.Row="7"
+			x:Name="ToucherUn"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="3"
+			Grid.Row="7"
+			x:Name="NombreDeUn"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<Label 
+			Grid.Column="4" Grid.ColumnSpan="1"
+			Grid.Row="7"
+			Content="d"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray"
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="5"
+			Grid.Row="7"
+			x:Name="TypeDeUn"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="6"
+			Grid.Row="7"
+			x:Name="DegatUn"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Deuxième attaque -->
+		<Label 
+			Grid.Column="1" Grid.ColumnSpan="1"
+			Grid.Row="8"
+			Content=" Attaque 2 :"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray"
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="2"
+			Grid.Row="8"
+			x:Name="ToucherDeux"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="3"
+			Grid.Row="8"
+			x:Name="NombreDeDeux"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<Label 
+			Grid.Column="4" Grid.ColumnSpan="1"
+			Grid.Row="8"
+			Content="d"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray"
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="5"
+			Grid.Row="8"
+			x:Name="TypeDeDeux"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="6"
+			Grid.Row="8"
+			x:Name="DegatDeux"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Troisième attaque -->
+		<Label 
+			Grid.Column="1" Grid.ColumnSpan="1"
+			Grid.Row="9"
+			Content=" Attaque 3 :"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray"
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="2"
+			Grid.Row="9"
+			x:Name="ToucherTrois"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="3"
+			Grid.Row="9"
+			x:Name="NombreDeTrois"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<Label 
+			Grid.Column="4" Grid.ColumnSpan="1"
+			Grid.Row="9"
+			Content="d"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="Gray"
+			Foreground="White"/>
+		<TextBox 
+			Grid.Column="5"
+			Grid.Row="9"
+			x:Name="TypeDeTrois"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+		<TextBox 
+			Grid.Column="6"
+			Grid.Row="9"
+			x:Name="DegatTrois"
+			Text="0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="LightGray" 
+			Foreground="Black"/>
+
+		<!-- Bouton validation -->
+		<Button
+			Grid.Column="3" Grid.ColumnSpan="2"
+			Grid.Row="10"
+			x:Name="Valider"
+			Content="Valider" 
+			Click="Valider_Click"
+			/>
+
+		<CheckBox 
+			x:Name="Avantage"
+			Grid.Column="2"
+			Grid.Row="10"
+			Content="Avantage"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Checked="Avantage_Checked"
+			Unchecked="Avantage_Unchecked"/>
+	</Grid>
+</Page>

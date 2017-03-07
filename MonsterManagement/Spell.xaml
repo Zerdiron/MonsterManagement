@@ -1,0 +1,171 @@
+﻿<Page x:Class="MonsterManagement.Spell"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MonsterManagement"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="600"
+      Title="Spell">
+
+	<Grid Background="White">
+		<!-- Définitions de la grille de la page. -->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="100*"/>
+			<RowDefinition Height="100*"/>
+			<RowDefinition Height="100*"/>
+			<RowDefinition Height="100*"/>
+			<RowDefinition Height="100*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="150*"/>
+			<ColumnDefinition Width="150*"/>
+			<ColumnDefinition Width="150*"/>
+			<ColumnDefinition Width="150*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid
+			Background="LightSteelBlue"
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.RowSpan="3"
+			Grid.ColumnSpan="4"/>
+
+		<!-- Texte indiquant la marche à suivre -->
+		<Label Background="Coral"
+               Grid.Column="1" Grid.ColumnSpan="4"
+               Grid.Row="1"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Content="Level du sort lancé :"/>
+
+		<!-- Premier bouton -->
+		<RadioButton 
+			Grid.Column="1"
+			Grid.Row="2"
+			x:Name="Trois"
+			GroupName="GrpLevel"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="3"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="Level_Checked"/>
+
+		<!-- Second bouton -->
+		<RadioButton 
+			Grid.Column="2"
+			Grid.Row="2"
+			x:Name="Cinq"
+			GroupName="GrpLevel"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="5"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="Level_Checked"/>
+
+		<!-- Troisième bouton -->
+		<RadioButton 
+			Grid.Column="3"
+			Grid.Row="2"
+			x:Name="Sept"
+			GroupName="GrpLevel"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="7"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="Level_Checked"/>
+
+		<!-- Quatrième bouton -->
+		<RadioButton 
+			Grid.Column="4"
+			Grid.Row="2"
+			x:Name="Neuf"
+			GroupName="GrpLevel"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="9"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="Level_Checked"/>
+
+		<!-- Texte indiquant la marche à suivre -->
+		<Label Background="Coral"
+               Grid.Column="1" Grid.ColumnSpan="4"
+               Grid.Row="3"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Content="FP des monstres à invoquer :"/>
+
+		<!-- Premier bouton -->
+		<RadioButton 
+			Grid.Column="1"
+			Grid.Row="4"
+			x:Name="UnQuart"
+			GroupName="GrpFP"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="1/4"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="FP_Checked"/>
+
+		<!-- Second bouton -->
+		<RadioButton 
+			Grid.Column="2"
+			Grid.Row="4"
+			x:Name="UnDemi"
+			GroupName="GrpFP"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="1/2"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="FP_Checked"/>
+
+		<!-- Troisième bouton -->
+		<RadioButton 
+			Grid.Column="3"
+			Grid.Row="4"
+			x:Name="Un"
+			GroupName="GrpFP"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="1"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="FP_Checked"/>
+
+		<!-- Quatrième bouton -->
+		<RadioButton 
+			Grid.Column="4"
+			Grid.Row="4"
+			x:Name="Deux"
+			GroupName="GrpFP"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="2"
+			Background="LightGray" 
+			Foreground="Black"
+			Checked="FP_Checked"/>
+
+		<!-- Bouton validation -->
+		<Button
+			Grid.Column="2" Grid.ColumnSpan="2"
+			Grid.Row="5"
+			Height="50"
+			Width="150"
+			x:Name="Valider"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+			Content="Valider" Click="Valider_Click"/>
+	</Grid>
+</Page>
