@@ -385,6 +385,11 @@
 			Background="LightGray" 
 			Foreground="Black"/>
 
+		<Label
+			Grid.Column="1" Grid.ColumnSpan="6"
+			Grid.Row="10"
+			Background="PaleGoldenrod"/>
+		
 		<!-- Bouton validation -->
 		<Button
 			Grid.Column="3" Grid.ColumnSpan="2"

@@ -11,5 +11,6 @@
 		ResizeMode="NoResize"
 		Closing="Invoc_Closing"
         Title="MonsterManagement (Dungeons and Dragons 5th)" 
-		Height="500" Width="600">
+		Height="500" Width="600"
+		Icon="MonsterManagement.ico">
 </NavigationWindow>

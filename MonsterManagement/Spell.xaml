@@ -155,6 +155,12 @@
 			Foreground="Black"
 			Checked="FP_Checked"/>
 
+		<!-- Couleur de fond -->
+		<Label
+			Grid.Column="1" Grid.ColumnSpan="4"
+			Grid.Row="5"
+			Background="PaleGoldenrod"/>
+
 		<!-- Bouton validation -->
 		<Button
 			Grid.Column="2" Grid.ColumnSpan="2"

@@ -68,11 +68,8 @@ namespace MonsterManagement
 		public JetsCombat(int NombreInvoc, short[] Caracs, short[] JDS, short[] AttaqueUn, short[] AttaqueDeux, short[] AttaqueTrois, bool avantage)
 		{
 			// On récupère les variables transmises au constructeur.
-			_Caracs = Caracs;
-			_JDS = JDS;
-			_AttaqueUn = AttaqueUn;
-			_AttaqueDeux = AttaqueDeux;
-			_AttaqueTrois = AttaqueTrois;
+			_Caracs = Caracs; _JDS = JDS;
+			_AttaqueUn = AttaqueUn;	_AttaqueDeux = AttaqueDeux;	_AttaqueTrois = AttaqueTrois;
 			_avantage = avantage;
 			_nombreInvoc = NombreInvoc;
 
@@ -80,20 +77,20 @@ namespace MonsterManagement
 			
 			TabInvoc = new Label[NombreInvoc];
 
-			// On définit la taille des colones.
-			ColumnDefinition col1 = new ColumnDefinition();
-			GridLength colw = new GridLength(600);
+			// On définit la taille des colonnes.
+			ColumnDefinition colonne_un = new ColumnDefinition();
+			GridLength colonne_un_width = new GridLength(600);
 			// Si il y a plus de 16 invocations on réduit la taille des colonnes pour en afficher deux.
 			if (NombreInvoc > 16)
 			{
-				colw = new GridLength(300);
-				ColumnDefinition col2 = new ColumnDefinition();
-				GridLength colw2 = new GridLength(300);
-				col2.Width = colw2;
-				JetCombat.ColumnDefinitions.Add(col2);
+				colonne_un_width = new GridLength(300);
+				ColumnDefinition colonne_deux = new ColumnDefinition();
+				GridLength colonne_deux_width = new GridLength(300);
+				colonne_deux.Width = colonne_deux_width;
+				JetCombat.ColumnDefinitions.Add(colonne_deux);
 			}
-			col1.Width = colw;
-			JetCombat.ColumnDefinitions.Add(col1);
+			colonne_un.Width = colonne_un_width;
+			JetCombat.ColumnDefinitions.Add(colonne_un);
 
 			// Variable d'initialisation pour la boucle.
 			short j = 0; // Pour l'indice des colonnes de la Grid.
@@ -114,19 +111,15 @@ namespace MonsterManagement
 
 				if (i == NombreInvoc)
 				{
-					if (NombreInvoc > 16)
-						TabInvoc[i - 1].Width = 150;
-					else TabInvoc[i - 1].Width = 300;
-					TabInvoc[i - 1].HorizontalAlignment = HorizontalAlignment.Left;
 					Button refresh = new Button();
-					refresh.HorizontalAlignment = HorizontalAlignment.Right;
+					refresh.HorizontalAlignment = HorizontalAlignment.Center;
 					refresh.VerticalAlignment = VerticalAlignment.Center;
 					refresh.Width = 150;
 					refresh.Click += Refresh_Click;
 					refresh.Content = "Refresh";
-					Grid.SetColumn(refresh, j);
-					Grid.SetRow(refresh, i);
-					JetCombat.Children.Add(refresh);
+					Grid.SetColumn(refresh, 0);
+					Grid.SetRow(refresh, 1);
+					Button.Children.Add(refresh);
 				}
 
 				if (i > 1 && i % 16 == 0) { j++; k -= 16; }

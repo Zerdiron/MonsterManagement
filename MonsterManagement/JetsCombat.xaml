@@ -8,8 +8,20 @@
       d:DesignHeight="500" d:DesignWidth="600"
       Title="Jets">
 
-	<Grid x:Name="JetCombat"
-		  Background="White">
+	<Grid
+		x:Name="Button"
+		Background="PaleGoldenrod">
 
+		<Grid.RowDefinitions>
+			<RowDefinition Height="574*"/>
+			<RowDefinition Height="26*"/>
+		</Grid.RowDefinitions>
+
+		<Grid 
+			x:Name="JetCombat"
+			Grid.Row="0"
+			Background="White">
+
+		</Grid>
 	</Grid>
 </Page>

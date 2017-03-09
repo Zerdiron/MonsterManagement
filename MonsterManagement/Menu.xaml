@@ -12,16 +12,16 @@
 		<!-- Définitions de la grille de la page. -->
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
-			<RowDefinition Height="26*"/>
-			<RowDefinition Height="26*"/>
-			<RowDefinition Height="26*"/>
+			<RowDefinition Height="166*"/>
+			<RowDefinition Height="166*"/>
+			<RowDefinition Height="166*"/>
 			<RowDefinition Height="1*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="1*"/>
-			<ColumnDefinition Width="70*"/>
-			<ColumnDefinition Width="70*"/>
-			<ColumnDefinition Width="70*"/>
+			<ColumnDefinition Width="200*"/>
+			<ColumnDefinition Width="200*"/>
+			<ColumnDefinition Width="200*"/>
 			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
 
