@@ -8,7 +8,7 @@
       d:DesignHeight="500" d:DesignWidth="600"
       Title="MainMenu">
 
-	<Grid x:Name="MainMenu" Background="White">
+	<Grid x:Name="MainMenu" Background="PaleGoldenrod">
 		<!-- Définitions de la grille de la page. -->
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
@@ -26,14 +26,14 @@
 		</Grid.ColumnDefinitions>
 
 		<!-- De la Couleur ! -->
-		<Label Background="Coral" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" />
-		<Label Background="PaleGoldenrod" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" 
+		<Label Background="LightSteelBlue" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" />
+		<Label Background="Coral" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
 			   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
 			   Content="Choisissez ce que vous voulez faire :" />
-		<Label Background="Coral" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" />
+		<Label Background="LightSteelBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" />
 
-		<Button x:Name="Spell" Click="Choix_Click" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Content="Spell"/>
-		<Button x:Name="Perso" Click="Choix_Click" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Content="Personnalisé"/>
+		<Button x:Name="Spell" Width="150" Click="Choix_Click" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Content="Spell"/>
+		<Button x:Name="Perso" Width="150" Click="Choix_Click" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Content="Personnalisé"/>
 
 	</Grid>
 </Page>
