@@ -13,6 +13,18 @@ namespace MonsterManagement
 		private int BaseInvocByFP;
 		private int MultiplicateurLevel;
 
+		public Stats(short nombre)
+		{
+			NombreInvoc = nombre;
+
+			InitializeComponent();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="level"></param>
+		/// <param name="fp"></param>
 		public Stats(short level, short fp)
 		{
 
@@ -31,6 +43,11 @@ namespace MonsterManagement
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Valider_Click(object sender, RoutedEventArgs e)
 		{
 			// Stats.

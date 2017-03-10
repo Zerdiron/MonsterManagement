@@ -24,5 +24,17 @@ namespace MonsterManagement
 		{
 			InitializeComponent();
 		}
+
+		private void Valider_Click(object sender, RoutedEventArgs e)
+		{
+			if (sender.Equals(Valider))
+			{
+				short nombreCreature;
+				short.TryParse(NombreCreature.Text, out nombreCreature);
+				Stats stats = new Stats(nombreCreature);
+
+				NavigationService.Navigate(stats);
+			}
+		}
 	}
 }
