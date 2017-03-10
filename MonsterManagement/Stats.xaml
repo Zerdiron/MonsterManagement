@@ -399,14 +399,6 @@
 			Click="Valider_Click"
 			/>
 
-		<CheckBox 
-			x:Name="Avantage"
-			Grid.Column="2"
-			Grid.Row="10"
-			Content="Avantage"
-			HorizontalAlignment="Center"
-			VerticalAlignment="Center"
-			Checked="Avantage_Checked"
-			Unchecked="Avantage_Unchecked"/>
+		
 	</Grid>
 </Page>

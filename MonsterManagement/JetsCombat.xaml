@@ -24,25 +24,49 @@
 
 		</Grid>
 
+		<!-- Jet d'attaque -->
 		<Button
 			x:Name="JetAttaque"
 			Grid.Row="1"
-			HorizontalAlignment = "Center"
+			HorizontalAlignment = "Right"
 			VerticalAlignment = "Center"
-			Margin = "200, 0, 0, 0"
+			Margin = "0, 0, 50, 0"
 			Width = "150"
 			Click = "Refresh_Click"
 			Content = "Jets d'attaque"/>
 
+		<!-- Jet de Sauvegarde -->
 		<Button
 			x:Name="JetSauvegarde"
 			Grid.Row="1"
-			HorizontalAlignment = "Center"
+			HorizontalAlignment = "Left"
 			VerticalAlignment = "Center"
-			Margin = "0, 0, 200, 0"
+			Margin = "50, 0, 0, 0"
 			Width = "150"
 			Click = "Refresh_Click"
 			Content = "Jets de Sauvegarde"/>
-		
+
+		<!-- L'Avantage -->
+		<CheckBox 
+			x:Name="Avantage"
+			Grid.Row="1"
+			Margin="100,0,0,0"
+			Content="Avantage"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Checked="Avantage_Checked"
+			Unchecked="Avantage_Unchecked"/>
+
+		<!-- Le Désavantage -->
+		<CheckBox 
+			x:Name="Desavantage"
+			Grid.Row="1"
+			Margin="0,0,80,0"
+			Content="Désavantage"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Checked="Desavantage_Checked"
+			Unchecked="Desavantage_Unchecked"/>
+
 	</Grid>
 </Page>

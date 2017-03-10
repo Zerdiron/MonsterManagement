@@ -12,7 +12,6 @@ namespace MonsterManagement
 		private int NombreInvoc = 0;
 		private int BaseInvocByFP;
 		private int MultiplicateurLevel;
-		private bool avantage = false;
 
 		public Stats(short level, short fp)
 		{
@@ -70,19 +69,9 @@ namespace MonsterManagement
 			short degatTrois; short.TryParse(DegatTrois.Text, out degatTrois);
 			short[] attaqueTrois = { bonusToucherTrois, deAttaqueTrois, typeDeTrois, degatTrois };
 
-			JetsCombat jetsCombat = new JetsCombat(NombreInvoc, Caracs, JDS, attaqueUn, attaqueDeux, attaqueTrois, avantage);
+			JetsCombat jetsCombat = new JetsCombat(NombreInvoc, Caracs, JDS, attaqueUn, attaqueDeux, attaqueTrois);
 
 			NavigationService.Navigate(jetsCombat);
-		}
-
-		private void Avantage_Checked(object sender, RoutedEventArgs e)
-		{
-			avantage = true;
-		}
-
-		private void Avantage_Unchecked(object sender, RoutedEventArgs e)
-		{
-			avantage = false;
 		}
 	}
 }

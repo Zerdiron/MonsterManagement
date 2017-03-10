@@ -49,7 +49,12 @@ namespace MonsterManagement
 		/// <summary>
 		/// Si l'invocation joue avec avantage ou non à ses jets.
 		/// </summary>
-		private bool _avantage;
+		private bool _Avantage;
+
+		/// <summary>
+		/// Si l'invocation joue avec désavantage ou non à ses jets.
+		/// </summary>
+		private bool _Desavantage;
 
 		/// <summary>
 		/// LE Randomizer !
@@ -66,12 +71,11 @@ namespace MonsterManagement
 		/// <param name="AttaqueUn">Le tableau des stats de la première attaque.</param>
 		/// <param name="AttaqueDeux">Le tableau des stats de la seconde attaque.</param>
 		/// <param name="AttaqueTrois">Le tableau des stats de la troisième attaque.</param>
-		public JetsCombat(int NombreInvoc, short[] Caracs, short[] JDS, short[] AttaqueUn, short[] AttaqueDeux, short[] AttaqueTrois, bool avantage)
+		public JetsCombat(int NombreInvoc, short[] Caracs, short[] JDS, short[] AttaqueUn, short[] AttaqueDeux, short[] AttaqueTrois)
 		{
 			// On récupère les variables transmises au constructeur.
 			_Caracs = Caracs; _JDS = JDS;
 			_AttaqueUn = AttaqueUn; _AttaqueDeux = AttaqueDeux; _AttaqueTrois = AttaqueTrois;
-			_avantage = avantage;
 			_nombreInvoc = NombreInvoc;
 
 			InitializeComponent();
@@ -99,10 +103,12 @@ namespace MonsterManagement
 
 			for (int i = 1; i <= NombreInvoc; i++)
 			{
+				// Ajout de lignes.
 				RowDefinition row = new RowDefinition();
 				row.Height = new GridLength(26);
 				JetCombat.RowDefinitions.Add(row);
 
+				// Définition des labels.
 				Label label = new Label();
 				if (i % 2 == 0) label.Background = Brushes.Coral;
 				else label.Background = Brushes.LightSteelBlue;
@@ -114,6 +120,7 @@ namespace MonsterManagement
 				if (i > 1 && i % 16 == 0) { j++; k -= 16; }
 			}
 
+			// Affiche le "nombre de créature" invoquées.
 			InitialisationAffichage();
 
 		}
@@ -145,7 +152,25 @@ namespace MonsterManagement
 				{
 					for (short indiceCarac = 0; indiceCarac < 6; indiceCarac++)
 					{
-						int Save = Randomizer.Next(1, 21);
+						int d20 = Randomizer.Next(1, 21);
+						int Save = d20;
+
+						if (_Avantage)
+						{
+							int d20_2 = Randomizer.Next(1, 21);
+							if (d20_2 > d20)
+								Save = d20_2;
+							else
+								Save = d20;
+						}
+						else if (_Desavantage)
+						{
+							int d20_2 = Randomizer.Next(1, 21);
+							if (d20_2 < d20)
+								Save = d20_2;
+							else
+								Save = d20;
+						}
 
 						string info = "";
 
@@ -168,6 +193,40 @@ namespace MonsterManagement
 			}
 		}
 
+		/// <summary>
+		/// Quand la case avantage est coché tourne le booléen en true.
+		/// </summary>
+		private void Avantage_Checked(object sender, RoutedEventArgs e)
+		{
+			_Avantage = true;
+			Desavantage.IsChecked = false;
+		}
+
+		/// <summary>
+		/// Quand la case avantage est décoché tourne le booléen en false.
+		/// </summary>
+		private void Avantage_Unchecked(object sender, RoutedEventArgs e)
+		{
+			_Avantage = false;
+		}
+
+		/// <summary>
+		/// Quand la case avantage est coché tourne le booléen en true.
+		/// </summary>
+		private void Desavantage_Checked(object sender, RoutedEventArgs e)
+		{
+			_Desavantage = true;
+			Avantage.IsChecked = false;
+		}
+
+		/// <summary>
+		/// Quand la case désavantage est décoché tourne le booléen en false.
+		/// </summary>
+		private void Desavantage_Unchecked(object sender, RoutedEventArgs e)
+		{
+			_Desavantage = false;
+		}
+
 		// Fonctions.
 		/// <summary>
 		/// Initialise l'affichage.
@@ -182,6 +241,7 @@ namespace MonsterManagement
 				TabInvocLabel[indiceInvoc].Content = string.Format("Invoc {0}: ", numero);
 			}
 		}
+
 		/// <summary>
 		/// Permet de lancer les attaques de la créature.
 		/// </summary>
@@ -195,10 +255,18 @@ namespace MonsterManagement
 				int d20 = Randomizer.Next(1, 21);
 				int jetAttaqueNaturel = d20;
 
-				if (_avantage)
+				if (_Avantage)
 				{
 					int d20_2 = Randomizer.Next(1, 21);
 					if (d20_2 > d20)
+						jetAttaqueNaturel = d20_2;
+					else
+						jetAttaqueNaturel = d20;
+				}
+				else if (_Desavantage)
+				{
+					int d20_2 = Randomizer.Next(1, 21);
+					if (d20_2 < d20)
 						jetAttaqueNaturel = d20_2;
 					else
 						jetAttaqueNaturel = d20;
