@@ -14,7 +14,7 @@
 
 		<Grid.RowDefinitions>
 			<RowDefinition Height="574*"/>
-			<RowDefinition Height="26*"/>
+			<RowDefinition Height="30*"/>
 		</Grid.RowDefinitions>
 
 		<Grid 
@@ -23,8 +23,26 @@
 			Background="White">
 
 		</Grid>
-		
-		
+
+		<Button
+			x:Name="JetAttaque"
+			Grid.Row="1"
+			HorizontalAlignment = "Center"
+			VerticalAlignment = "Center"
+			Margin = "200, 0, 0, 0"
+			Width = "150"
+			Click = "Refresh_Click"
+			Content = "Jets d'attaque"/>
+
+		<Button
+			x:Name="JetSauvegarde"
+			Grid.Row="1"
+			HorizontalAlignment = "Center"
+			VerticalAlignment = "Center"
+			Margin = "0, 0, 200, 0"
+			Width = "150"
+			Click = "Refresh_Click"
+			Content = "Jets de Sauvegarde"/>
 		
 	</Grid>
 </Page>

@@ -113,39 +113,20 @@ namespace MonsterManagement
 				if (i > 1 && i % 16 == 0) { j++; k -= 16; }
 			}
 
-			Button JetAttaque = new Button();
-			JetAttaque.Name = "JetAttaque";
-			JetAttaque.HorizontalAlignment = HorizontalAlignment.Center;
-			JetAttaque.VerticalAlignment = VerticalAlignment.Center;
-			JetAttaque.Margin = new Thickness(200, 0, 0, 0);
-			JetAttaque.Width = 150;
-			JetAttaque.Click += Refresh_Click;
-			JetAttaque.Content = "Jets d'attaque";
-			Grid.SetColumn(JetAttaque, 0);
-			Grid.SetRow(JetAttaque, 1);
-			Button.Children.Add(JetAttaque);
-
-			Button JetSauvegarde = new Button();
-			JetSauvegarde.Name = "JetSauvegarde";
-			JetSauvegarde.HorizontalAlignment = HorizontalAlignment.Center;
-			JetSauvegarde.VerticalAlignment = VerticalAlignment.Center;
-			JetSauvegarde.Margin = new Thickness(0, 0, 200, 0);
-			JetSauvegarde.Width = 150;
-			JetSauvegarde.Click += Refresh_Click;
-			JetSauvegarde.Content = "Jets de Sauvegarde";
-			Grid.SetColumn(JetSauvegarde, 0);
-			Grid.SetRow(JetSauvegarde, 1);
-			Button.Children.Add(JetSauvegarde);
 		}
 
 		private void Refresh_Click(object sender, RoutedEventArgs e)
 		{
 			if (sender.Equals(JetAttaque))
 			{
-
 				if (_AttaqueUn[2] > 0)
 					for (short i = 0; i < _nombreInvoc; i++)
 					{
+						string numero = (i + 1).ToString();
+						if (i + 1 < 10)
+							numero = 0 + numero;
+						TabInvoc[i].Content = string.Format("Invoc {0}: ", numero);
+
 						int d20 = Randomizer.Next(1, 21);
 						int jetAttaqueNaturel = d20;
 
@@ -159,13 +140,19 @@ namespace MonsterManagement
 						}
 
 						int nombreDe = _AttaqueUn[1];
-						string crit = "";
+						string crit = "       ";
 
 						if (jetAttaqueNaturel == 20)
 						{
 							nombreDe = nombreDe * 2;
 							crit = "(crit)";
 						}
+						else if (jetAttaqueNaturel == 1)
+							crit = "(fail)";
+
+						string Attaque = (jetAttaqueNaturel + _AttaqueUn[0]).ToString();
+						if (jetAttaqueNaturel + _AttaqueUn[0] < 10)
+							Attaque = 0 + Attaque;
 
 						int totalDegat = 0;
 
@@ -174,9 +161,12 @@ namespace MonsterManagement
 
 						totalDegat += _AttaqueUn[3];
 
-						int jetAttaque = jetAttaqueNaturel + _AttaqueUn[0];
+						string Degat = totalDegat.ToString();
 
-						TabInvoc[i].Content = string.Format("Invoc {0}: {1}|{2}{3}", i + 1, jetAttaque, totalDegat, crit);
+						if (totalDegat < 10)
+							Degat = 0 + Degat;
+
+						TabInvoc[i].Content += string.Format(" {0}|{1}{2}", Attaque, Degat, crit);
 					}
 
 				if (_AttaqueDeux[2] > 0)
@@ -194,25 +184,34 @@ namespace MonsterManagement
 								jetAttaqueNaturel = d20;
 						}
 
-						int nombreDe = _AttaqueUn[1];
-						string crit = "";
+						int nombreDe = _AttaqueDeux[1];
+						string crit = "       ";
 
 						if (jetAttaqueNaturel == 20)
 						{
 							nombreDe = nombreDe * 2;
 							crit = "(crit)";
 						}
+						else if (jetAttaqueNaturel == 1)
+							crit = "(fail)";
+
+						string Attaque = (jetAttaqueNaturel + _AttaqueDeux[0]).ToString();
+						if (jetAttaqueNaturel + _AttaqueDeux[0] < 10)
+							Attaque = 0 + Attaque;
 
 						int totalDegat = 0;
 
 						for (short j = 0; j < nombreDe; j++)
-							totalDegat += Randomizer.Next(1, _AttaqueUn[2] + 1);
+							totalDegat += Randomizer.Next(1, _AttaqueDeux[2] + 1);
 
-						totalDegat += _AttaqueUn[3];
+						totalDegat += _AttaqueDeux[3];
 
-						int jetAttaque = jetAttaqueNaturel + _AttaqueUn[0];
+						string Degat = totalDegat.ToString();
 
-						TabInvoc[i].Content += string.Format(", {1}|{2}{3}", i + 1, jetAttaque, totalDegat, crit);
+						if (totalDegat < 10)
+							Degat = 0 + Degat;
+
+						TabInvoc[i].Content += string.Format(" {0}|{1}{2}", Attaque, Degat, crit);
 					}
 
 				if (_AttaqueTrois[2] > 0)
@@ -230,26 +229,61 @@ namespace MonsterManagement
 								jetAttaqueNaturel = d20;
 						}
 
-						int nombreDe = _AttaqueUn[1];
-						string crit = "";
+						int nombreDe = _AttaqueTrois[1];
+						string crit = "       ";
 
 						if (jetAttaqueNaturel == 20)
 						{
 							nombreDe = nombreDe * 2;
 							crit = "(crit)";
 						}
+						else if (jetAttaqueNaturel == 1)
+							crit = "(fail)";
+
+						string Attaque = (jetAttaqueNaturel + _AttaqueTrois[0]).ToString();
+						if (jetAttaqueNaturel + _AttaqueTrois[0] < 10)
+							Attaque = 0 + Attaque;
 
 						int totalDegat = 0;
 
 						for (short j = 0; j < nombreDe; j++)
-							totalDegat += Randomizer.Next(1, _AttaqueUn[2] + 1);
+							totalDegat += Randomizer.Next(1, _AttaqueTrois[2] + 1);
 
-						totalDegat += _AttaqueUn[3];
+						totalDegat += _AttaqueTrois[3];
 
-						int jetAttaque = jetAttaqueNaturel + _AttaqueUn[0];
+						string Degat = totalDegat.ToString();
 
-						TabInvoc[i].Content += string.Format(", {1}|{2}{3}", i + 1, jetAttaque, totalDegat, crit);
+						if (totalDegat < 10)
+							Degat = 0 + Degat;
+
+						TabInvoc[i].Content += string.Format(" {0}|{1}{2}", Attaque, Degat, crit);
 					}
+			}
+			else if (sender.Equals(JetSauvegarde))
+			{
+				for (short i = 0; i < _nombreInvoc; i++)
+				{
+					string numero = (i + 1).ToString();
+					if (i + 1 < 10)
+						numero = 0 + numero;
+					TabInvoc[i].Content = string.Format("Invoc {0}: ", numero);
+					for (short indiceCarac = 0; indiceCarac < 6; indiceCarac++)
+					{
+						int Save = Randomizer.Next(1, 21);
+
+						string info = "";
+
+						int Bonus = _JDS[indiceCarac];
+						string Final = (Save + Bonus).ToString();
+						if (Save + Bonus < 10)
+							Final = 0 + Final;
+
+						string Carac = "";
+						if (indiceCarac == 0) Carac = "For"; else if (indiceCarac == 1) Carac = "Dex"; else if (indiceCarac == 2) Carac = "Con"; else if (indiceCarac == 3) Carac = "Int"; else if (indiceCarac == 4) Carac = "Sag"; else if (indiceCarac == 5) Carac = "Cha";
+
+						TabInvoc[i].Content += string.Format("{0}:{1}{2} ", Carac, Final, info);
+					}
+				}
 			}
 		}
 	}
