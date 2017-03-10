@@ -10,7 +10,7 @@ namespace MonsterManagement
 	/// </summary>
 	public partial class JetsCombat : Page
 	{
-
+		// Attributs.
 		/// <summary>
 		/// Le tableau de stats de l'invocation.
 		/// </summary>
@@ -56,6 +56,7 @@ namespace MonsterManagement
 		/// </summary>
 		static readonly Random Randomizer = new Random();
 
+		// Constructeur.
 		/// <summary>
 		/// Constructeur qui construit la page en fonction du nombre de créatures.
 		/// </summary>
@@ -115,149 +116,34 @@ namespace MonsterManagement
 
 		}
 
+		// Evènements.
+		/// <summary>
+		/// Actualise les données en fonction du bouton qui est appuyé.
+		/// </summary>
+		/// <param name="sender">Le bouton qui déclenche l'évènement.</param>
+		/// <param name="e">L'évènement en question.</param>
 		private void Refresh_Click(object sender, RoutedEventArgs e)
 		{
 			if (sender.Equals(JetAttaque))
 			{
 				if (_AttaqueUn[2] > 0)
-					for (short i = 0; i < _nombreInvoc; i++)
+					for (short indiceInvoc = 0; indiceInvoc < _nombreInvoc; indiceInvoc++)
 					{
-						string numero = (i + 1).ToString();
-						if (i + 1 < 10)
+						string numero = (indiceInvoc + 1).ToString();
+						if (indiceInvoc + 1 < 10)
 							numero = 0 + numero;
-						TabInvoc[i].Content = string.Format("Invoc {0}: ", numero);
+						TabInvoc[indiceInvoc].Content = string.Format("Invoc {0}: ", numero);
 
-						int d20 = Randomizer.Next(1, 21);
-						int jetAttaqueNaturel = d20;
-
-						if (_avantage)
-						{
-							int d20_2 = Randomizer.Next(1, 21);
-							if (d20_2 > d20)
-								jetAttaqueNaturel = d20_2;
-							else
-								jetAttaqueNaturel = d20;
-						}
-
-						int nombreDe = _AttaqueUn[1];
-						string crit = "       ";
-
-						if (jetAttaqueNaturel == 20)
-						{
-							nombreDe = nombreDe * 2;
-							crit = "(crit)";
-						}
-						else if (jetAttaqueNaturel == 1)
-							crit = "(fail)";
-
-						string Attaque = (jetAttaqueNaturel + _AttaqueUn[0]).ToString();
-						if (jetAttaqueNaturel + _AttaqueUn[0] < 10)
-							Attaque = 0 + Attaque;
-
-						int totalDegat = 0;
-
-						for (short j = 0; j < nombreDe; j++)
-							totalDegat += Randomizer.Next(1, _AttaqueUn[2] + 1);
-
-						totalDegat += _AttaqueUn[3];
-
-						string Degat = totalDegat.ToString();
-
-						if (totalDegat < 10)
-							Degat = 0 + Degat;
-
-						TabInvoc[i].Content += string.Format(" {0}|{1}{2}", Attaque, Degat, crit);
+						LancerAttaque(_AttaqueUn, indiceInvoc);
 					}
 
 				if (_AttaqueDeux[2] > 0)
-					for (short i = 0; i < _nombreInvoc; i++)
-					{
-						int d20 = Randomizer.Next(1, 21);
-						int jetAttaqueNaturel = d20;
-
-						if (_avantage)
-						{
-							int d20_2 = Randomizer.Next(1, 21);
-							if (d20_2 > d20)
-								jetAttaqueNaturel = d20_2;
-							else
-								jetAttaqueNaturel = d20;
-						}
-
-						int nombreDe = _AttaqueDeux[1];
-						string crit = "       ";
-
-						if (jetAttaqueNaturel == 20)
-						{
-							nombreDe = nombreDe * 2;
-							crit = "(crit)";
-						}
-						else if (jetAttaqueNaturel == 1)
-							crit = "(fail)";
-
-						string Attaque = (jetAttaqueNaturel + _AttaqueDeux[0]).ToString();
-						if (jetAttaqueNaturel + _AttaqueDeux[0] < 10)
-							Attaque = 0 + Attaque;
-
-						int totalDegat = 0;
-
-						for (short j = 0; j < nombreDe; j++)
-							totalDegat += Randomizer.Next(1, _AttaqueDeux[2] + 1);
-
-						totalDegat += _AttaqueDeux[3];
-
-						string Degat = totalDegat.ToString();
-
-						if (totalDegat < 10)
-							Degat = 0 + Degat;
-
-						TabInvoc[i].Content += string.Format(" {0}|{1}{2}", Attaque, Degat, crit);
-					}
+					for (short indiceInvoc = 0; indiceInvoc < _nombreInvoc; indiceInvoc++)
+						LancerAttaque(_AttaqueDeux, indiceInvoc);
 
 				if (_AttaqueTrois[2] > 0)
-					for (short i = 0; i < _nombreInvoc; i++)
-					{
-						int d20 = Randomizer.Next(1, 21);
-						int jetAttaqueNaturel = d20;
-
-						if (_avantage)
-						{
-							int d20_2 = Randomizer.Next(1, 21);
-							if (d20_2 > d20)
-								jetAttaqueNaturel = d20_2;
-							else
-								jetAttaqueNaturel = d20;
-						}
-
-						int nombreDe = _AttaqueTrois[1];
-						string crit = "       ";
-
-						if (jetAttaqueNaturel == 20)
-						{
-							nombreDe = nombreDe * 2;
-							crit = "(crit)";
-						}
-						else if (jetAttaqueNaturel == 1)
-							crit = "(fail)";
-
-						string Attaque = (jetAttaqueNaturel + _AttaqueTrois[0]).ToString();
-						if (jetAttaqueNaturel + _AttaqueTrois[0] < 10)
-							Attaque = 0 + Attaque;
-
-						int totalDegat = 0;
-
-						for (short j = 0; j < nombreDe; j++)
-							totalDegat += Randomizer.Next(1, _AttaqueTrois[2] + 1);
-
-						totalDegat += _AttaqueTrois[3];
-
-						string Degat = totalDegat.ToString();
-
-						if (totalDegat < 10)
-							Degat = 0 + Degat;
-
-						TabInvoc[i].Content += string.Format(" {0}|{1}{2}", Attaque, Degat, crit);
-					}
+					for (short indiceInvoc = 0; indiceInvoc < _nombreInvoc; indiceInvoc++)
+						LancerAttaque(_AttaqueTrois, indiceInvoc);
 			}
 			else if (sender.Equals(JetSauvegarde))
 			{
@@ -279,12 +165,67 @@ namespace MonsterManagement
 							Final = 0 + Final;
 
 						string Carac = "";
-						if (indiceCarac == 0) Carac = "For"; else if (indiceCarac == 1) Carac = "Dex"; else if (indiceCarac == 2) Carac = "Con"; else if (indiceCarac == 3) Carac = "Int"; else if (indiceCarac == 4) Carac = "Sag"; else if (indiceCarac == 5) Carac = "Cha";
+						if (indiceCarac == 0) Carac = "For";
+						else if (indiceCarac == 1) Carac = "Dex";
+						else if (indiceCarac == 2) Carac = "Con";
+						else if (indiceCarac == 3) Carac = "Int";
+						else if (indiceCarac == 4) Carac = "Sag";
+						else if (indiceCarac == 5) Carac = "Cha";
 
 						TabInvoc[i].Content += string.Format("{0}:{1}{2} ", Carac, Final, info);
 					}
 				}
 			}
+		}
+
+		// Fonctions.
+		/// <summary>
+		/// Permet de lancer les attaques de la créature.
+		/// </summary>
+		/// <param name="tableauAttaque">Le tableau de stats de l'attaque en question.</param>
+		/// <param name="indiceInvoc">L'indice de l'invocation qui fait l'attaque.</param>
+		private void LancerAttaque(short[] tableauAttaque, short indiceInvoc)
+		{
+			int d20 = Randomizer.Next(1, 21);
+			int jetAttaqueNaturel = d20;
+
+			if (_avantage)
+			{
+				int d20_2 = Randomizer.Next(1, 21);
+				if (d20_2 > d20)
+					jetAttaqueNaturel = d20_2;
+				else
+					jetAttaqueNaturel = d20;
+			}
+
+			int nombreDe = tableauAttaque[1];
+			string crit = "       ";
+
+			if (jetAttaqueNaturel == 20)
+			{
+				nombreDe = nombreDe * 2;
+				crit = "(crit)";
+			}
+			else if (jetAttaqueNaturel == 1)
+				crit = "(fail)";
+
+			string Attaque = (jetAttaqueNaturel + tableauAttaque[0]).ToString();
+			if (jetAttaqueNaturel + tableauAttaque[0] < 10)
+				Attaque = 0 + Attaque;
+
+			int totalDegat = 0;
+
+			for (short j = 0; j < nombreDe; j++)
+				totalDegat += Randomizer.Next(1, tableauAttaque[2] + 1);
+
+			totalDegat += tableauAttaque[3];
+
+			string Degat = totalDegat.ToString();
+
+			if (totalDegat < 10)
+				Degat = 0 + Degat;
+
+			TabInvoc[indiceInvoc].Content += string.Format(" {0}|{1}{2}", Attaque, Degat, crit);
 		}
 	}
 }
